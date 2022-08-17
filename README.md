@@ -1,0 +1,1 @@
+# moesif-aws-gateway-stripe-api-monetization-demo
