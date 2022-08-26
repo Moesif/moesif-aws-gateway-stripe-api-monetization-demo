@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "http": "0.0.1-security",
     "moesif-nodejs": "^3.1.14",
-    "node-fetch": "^2.6.5",
+    "node-fetch": "^2.6.7",
     "path": "^0.12.7",
     "stripe": "^8.219.0"
   }
