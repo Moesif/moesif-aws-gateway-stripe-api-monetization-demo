@@ -22,23 +22,26 @@ After you cloned your repo, in the root folder of the repo, to set up your envir
 
 In the `.env` file, you will need to plug in a few details in order to make this work.
 
-__STRIPE_KEY__ will contain the key to access the Stripe APIs.
+* STRIPE_KEY="<stripe_key>"
+*     To find this value, in Stripe, on the Developers screen, choose API keys in the left-side menu. In the center pane, copy the value for Secret key and replace the <stripe_key> value. 
+* STRIPE_PRICE_KEY="<tsripe_price_key>"
+*     To find this value, in Stripe, go to the Products tab and choose the My API product you created in step A. In the center pane, under Pricing in the API ID column, copy the API ID. Replace the <stripe_key> with this value.
+* MOESIF_APPLICATION_ID="<Moesif_app_id>”
+*     To find this value, in Moesif at the bottom left, choose your name. The settings menu will appear. In the menu, choose API Keys. On your API Keys page under Your Collector Application Id, copy the Id and replace <Moesif_app_id> with the value.
+* AWS_INVOKE_URL=”<aws_invoke_url>”
+*     This is the URL of your API Gateway. Find this by going to the API Gateway console, navigating to your API, and in the left menu, choosing Stages. Select the stage that you want to integrate, and at the top of the main pane, copy the Invoke URL. An example would be “https://your-aws-api-gateway.execute-api.region.amazonaws.com”. Replace the <aws_invoke_url> with your own URL value in your code.
+* AWS_REGION="<aws_region>"
+*     This value will be based on the AWS Region where you have your API Gateway running. Replace the <aws_region> with the AWS region you are using. An example value would be us-east-2.
+* AWS_ACCESS_KEY_ID="<aws_access_key_id>"
+*     To find this and the secret access key mentioned next, follow the guide for Accessing AWS using your AWS credentials. Replace the <aws_access_key_id> with the value for your secret access key.
+* AWS_SECRET_ACCESS_KEY="<aws_secret_access_key>"
+*     This will be your AWS secret access key. I highly recommend you create a new key by following the instructions listed in the AWS Security blog post, Where's My Secret Access Key? For security reasons,  the newly created AWS Access Key should follow the least privileges principle. Replace the <aws_secret_access_key> with your secret access key.
+* AWS_USAGE_PLAN_KEY_TYPE="API_KEY"
+*     Make sure the value for this is set to the word API_KEY.
+* AWS_USAGE_PLAN_ID=”<usage_plan>"
+*     To find this value, in the API Gateway console left menu, select Usage Plans. Then select your plan and copy the ID at the top of the center pane. Paste that ID into the value for <usage_plan>.
+![image](https://github.com/Moesif/moesif-aws-gateway-stripe-api-monetization-demo/assets/17327354/531a5a0e-e6ab-427e-8b9f-8b0ab0fdf591)
 
-__STRIPE_PRICE_KEY__ will contain the key to your Product's Price in Stripe
-
-__MOESIF_APPLICATION_ID__ will contain your Moesif Application ID.
-
-__AWS_INVOKE_URL__ This will be the URL of your AWS API Gateway. This can be found by navigating to your API in the AWS API Gateway Console, navigating to Stages, selecting your stage, and copying the Invoke URL on the screen.
-
-__AWS_REGION__ This value will be based on the AWS region where you have your AWS API Gateway running. An example value would be “us-east-2”.
-
-__AWS_ACCESS_KEY_ID__ Info on this and the Secret Access Key mentioned below can be found [here](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html).
-
-__AWS_SECRET_ACCESS_KEY__ This will be your AWS Secret Access Key. You will likely need to generate a new one and can check out the instructions from the AWS team [here](https://aws.amazon.com/blogs/security/wheres-my-secret-access-key/) on how to do it.
-
-__AWS_USAGE_PLAN_KEY_TYPE__ AWS allows for multiple usage plan key types but for our purposes we will use API_KEY as the value here.
-
-__AWS_USAGE_PLAN_ID__ This value can be accessed by going to your Usage Plan in the AWS API Gateway console. You can navigate here by going to your API in the AWS console, clicking Usage Plans, selecting your plan, and copying the ID.
 
 To run the project, run `node app.js`. This will bring up the backend and frontend for the project.
 
