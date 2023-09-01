@@ -25,21 +25,21 @@ In the `.env` file, you will need to plug in a few details in order to make this
 * STRIPE_KEY="<stripe_key>"
     * **To find this value, in Stripe, on the Developers screen, choose API keys in the left-side menu. In the center pane, copy the value for Secret key and replace the <stripe_key> value.**
 * STRIPE_PRICE_KEY="<tsripe_price_key>"
-**To find this value, in Stripe, go to the Products tab and choose the My API product you created in step A. In the center pane, under Pricing in the API ID column, copy the API ID. Replace the <stripe_key> with this value.**
+    * **To find this value, in Stripe, go to the Products tab and choose the My API product you created in step A. In the center pane, under Pricing in the API ID column, copy the API ID. Replace the <stripe_key> with this value.**
 * MOESIF_APPLICATION_ID="<Moesif_app_id>”
-**To find this value, in Moesif at the bottom left, choose your name. The settings menu will appear. In the menu, choose API Keys. On your API Keys page under Your Collector Application Id, copy the Id and replace <Moesif_app_id> with the value.**
+    * **To find this value, in Moesif at the bottom left, choose your name. The settings menu will appear. In the menu, choose API Keys. On your API Keys page under Your Collector Application Id, copy the Id and replace <Moesif_app_id> with the value.**
 * AWS_INVOKE_URL=”<aws_invoke_url>”
-**This is the URL of your API Gateway. Find this by going to the API Gateway console, navigating to your API, and in the left menu, choosing Stages. Select the stage that you want to integrate, and at the top of the main pane, copy the Invoke URL. An example would be “https://your-aws-api-gateway.execute-api.region.amazonaws.com”. Replace the <aws_invoke_url> with your own URL value in your code.**
+    * **This is the URL of your API Gateway. Find this by going to the API Gateway console, navigating to your API, and in the left menu, choosing Stages. Select the stage that you want to integrate, and at the top of the main pane, copy the Invoke URL. An example would be “https://your-aws-api-gateway.execute-api.region.amazonaws.com”. Replace the <aws_invoke_url> with your own URL value in your code.**
 * AWS_REGION="<aws_region>"
-**This value will be based on the AWS Region where you have your API Gateway running. Replace the <aws_region> with the AWS region you are using. An example value would be us-east-2.**
+    * **This value will be based on the AWS Region where you have your API Gateway running. Replace the <aws_region> with the AWS region you are using. An example value would be us-east-2.**
 * AWS_ACCESS_KEY_ID="<aws_access_key_id>"
-**To find this and the secret access key mentioned next, follow the guide for Accessing AWS using your AWS credentials. Replace the <aws_access_key_id> with the value for your secret access key.**
+    * **To find this and the secret access key mentioned next, follow the guide for Accessing AWS using your AWS credentials. Replace the <aws_access_key_id> with the value for your secret access key.**
 * AWS_SECRET_ACCESS_KEY="<aws_secret_access_key>"
-**This will be your AWS secret access key. I highly recommend you create a new key by following the instructions listed in the AWS Security blog post, Where's My Secret Access Key? For security reasons,  the newly created AWS Access Key should follow the least privileges principle. Replace the <aws_secret_access_key> with your secret access key.**
+    * **This will be your AWS secret access key. I highly recommend you create a new key by following the instructions listed in the AWS Security blog post, Where's My Secret Access Key? For security reasons,  the newly created AWS Access Key should follow the least privileges principle. Replace the <aws_secret_access_key> with your secret access key.**
 * AWS_USAGE_PLAN_KEY_TYPE="API_KEY"
-**Make sure the value for this is set to the word API_KEY.**
+    * **Make sure the value for this is set to the word API_KEY.**
 * AWS_USAGE_PLAN_ID=”<usage_plan>"
-**To find this value, in the API Gateway console left menu, select Usage Plans. Then select your plan and copy the ID at the top of the center pane. Paste that ID into the value for <usage_plan>.**
+    * **To find this value, in the API Gateway console left menu, select Usage Plans. Then select your plan and copy the ID at the top of the center pane. Paste that ID into the value for <usage_plan>.**
 ![image](https://github.com/Moesif/moesif-aws-gateway-stripe-api-monetization-demo/assets/17327354/531a5a0e-e6ab-427e-8b9f-8b0ab0fdf591)
 
 
