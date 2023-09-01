@@ -40,8 +40,6 @@ In the `.env` file, you will need to plug in a few details in order to make this
     * **Make sure the value for this is set to the word API_KEY.**
 * AWS_USAGE_PLAN_ID=”<usage_plan>"
     * **To find this value, in the API Gateway console left menu, select Usage Plans. Then select your plan and copy the ID at the top of the center pane. Paste that ID into the value for <usage_plan>.**
-![image](https://github.com/Moesif/moesif-aws-gateway-stripe-api-monetization-demo/assets/17327354/531a5a0e-e6ab-427e-8b9f-8b0ab0fdf591)
-
 
 To run the project, run `node app.js`. This will bring up the backend and frontend for the project.
 
