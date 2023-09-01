@@ -23,7 +23,7 @@ After you cloned your repo, in the root folder of the repo, to set up your envir
 In the `.env` file, you will need to plug in a few details in order to make this work.
 
 * STRIPE_KEY="<stripe_key>"
-**To find this value, in Stripe, on the Developers screen, choose API keys in the left-side menu. In the center pane, copy the value for Secret key and replace the <stripe_key> value.**
+    * **To find this value, in Stripe, on the Developers screen, choose API keys in the left-side menu. In the center pane, copy the value for Secret key and replace the <stripe_key> value.**
 * STRIPE_PRICE_KEY="<tsripe_price_key>"
 **To find this value, in Stripe, go to the Products tab and choose the My API product you created in step A. In the center pane, under Pricing in the API ID column, copy the API ID. Replace the <stripe_key> with this value.**
 * MOESIF_APPLICATION_ID="<Moesif_app_id>”
