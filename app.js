@@ -33,7 +33,7 @@ const moesifMiddleware = moesif({
 app.use(moesifMiddleware);
 
 app.post('/register', jsonParser,
-  async (req, res) => {
+ async (req, res) => {
     console.log(req.body);
 
     // Generate API key
@@ -47,7 +47,12 @@ app.post('/register', jsonParser,
     const awsApiKey = response.value;
     console.log(response);
 
-    const usageKeyCommand = new CreateUsagePlanKeyCommand({keyId: response.id, keyType: process.env.AWS_USAGE_PLAN_KEY_TYPE, usagePlanId: process.env.AWS_USAGE_PLAN_ID});
+    // Associate the API key with a usage plan
+    const usageKeyCommand = new CreateUsagePlanKeyCommand({
+  keyId: response.id,
+  keyType: process.env.AWS_USAGE_PLAN_KEY_TYPE,
+  usagePlanId: process.env.AWS_USAGE_PLAN_ID
+    });
     const usageKeyResponse = await client.send(usageKeyCommand);
     console.log(usageKeyResponse);
 
@@ -73,28 +78,35 @@ app.post('/register', jsonParser,
     });
     console.log('stripe subscription created: ' + subscription.id);
 
-    // create user and company in Moesif
-    var company = { companyId: subscription.id };
+    // create user, company, and subscription in Moesif
+    var company = { companyId: customer.id };
     moesifMiddleware.updateCompany(company);
-    console.log("Moesif create company");
 
-    var user = { 
-      userId: awsApiKeyId,
-      companyId: subscription.id,
+    var user = {
+      userId: customer.id,
+      companyId: customer.id,
       metadata: {
         email: req.body.email,
         firstName: req.body.firstname,
         lastName: req.body.lastname,
-        apikey: awsApiKey,
       }
     };
     moesifMiddleware.updateUser(user);
-    console.log(user);
-    console.log("Moesif create user");
+
+    var subscription = {
+      subscriptionId: subscription.id,
+      companyId: customer.id,
+      status: "active",
+    }
+    moesifMiddleware.updateSubscription(subscription).then((result) => { 
+      console.log("subscription updated successfully");
+    }).catch((err) => {
+      console.error("Error updating subscription", err);
+    } );
 
     res.status(200)
     res.send({ apikey: awsApiKey });
-  }
+ }
 )
 
 app.get("/", function (_req, res) {
